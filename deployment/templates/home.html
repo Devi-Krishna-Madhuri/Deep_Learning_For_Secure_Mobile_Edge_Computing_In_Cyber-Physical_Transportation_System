@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://www.telefocal.com/TAwp/wp-content/uploads/2021/03/An-Overview-of-Cyber-Security-870x440.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        /* Background overlay for better readability */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            animation: fadeInDown 1s ease-in-out;
+	    width: 80%;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(0px);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        .left-content {
+            flex: 2;
+            text-align: left;
+            padding: 20px;
+            animation: mirrorEffect 2s infinite alternate ease-in-out;
+        }
+
+        .right-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            animation: mirrorEffectReverse 2s infinite alternate ease-in-out;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            width: 220px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #0056b3, #003c80);
+            transform: scale(1.05);
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        a {
+            color: #00c3ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #ffcc00;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes mirrorEffect {
+            from {
+                transform: rotateY(5deg);
+            }
+            to {
+                transform: rotateY(-5deg);
+            }
+        }
+
+        @keyframes mirrorEffectReverse {
+            from {
+                transform: rotateY(-5deg);
+            }
+            to {
+                transform: rotateY(5deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Deep Learning for Secure Mobile Edge Computing in Cyber-Physical Transportation Systems</h1>
+    </div>
+    <div class="container">
+        <div class="left-content">
+            <p>
+                This system enhances security in mobile edge computing devices. With the rise in cyber threats, we developed a system that detects different types of attacks on mobile edge computing devices based on network parameters. If an attack is detected, an alert message is sent to the targeted user via email.
+            </p>
+            <h3>Types of Attacks</h3>
+            <ul>
+                <li><strong>DDoS Attack:</strong> A distributed denial-of-service (DDoS) attack floods a network with excessive traffic, causing disruption. <a href="https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/" target="_blank">Read more</a></li>
+                <li><strong>Spoofing Attack:</strong> Attackers disguise themselves as trusted entities to gain access to sensitive data. <a href="https://www.techtarget.com/searchsecurity/definition/spoofing" target="_blank">Read more</a></li>
+                <li><strong>Phishing Attack:</strong> Cybercriminals trick individuals into providing sensitive information, often via fraudulent emails. <a href="https://www.phishing.org/what-is-phishing" target="_blank">Read more</a></li>
+            </ul>
+        </div>
+        <div class="right-content">
+            <div class="icon">&#128100;</div>
+            <a href="/register" class="btn">User Registration</a>
+            <div class="icon">&#128274;</div>
+            <a href="/login" class="btn">Admin Login</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Network Attack Prediction</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://www.telefocal.com/TAwp/wp-content/uploads/2021/03/An-Overview-of-Cyber-Security-870x440.png') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: auto;
+    }
+
+    /* Background overlay for better readability */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    /* Header Styles */
+    .header {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      animation: fadeInDown 1s ease-in-out;
+      width: 80%;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    /* Container Styles */
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(0px);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      color: white;
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 20px;
+      animation: slideUp 1.5s ease-in-out;
+    }
+
+    h1 {
+      color: #fcfffc;
+      text-align: center;
+      font-size: 22px;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    h4 {
+      text-align: center;
+      font-size: 16px;
+      color: #ffffff;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .error-message {
+      color: #ff4444;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    /* Form Styles */
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .form-section {
+      width: 24%;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      color: #ffffff;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input,
+    select {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    button {
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .action-button {
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+      font-size: 16px;
+      padding: 10px 20px;
+      width: auto;
+      margin-top: 10px;
+    }
+
+    .action-button:hover {
+      background: linear-gradient(135deg, #0056b3, #003c80);
+      transform: scale(1.05);
+    }
+
+    /* Prediction Styles */
+    .prediction {
+      text-align: center;
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(241, 248, 233, 0.1);
+      border-radius: 5px;
+      color: #4caf50;
+      font-weight: bold;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    /* Logout Button Styles */
+    .logout-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .logout-button button {
+      background: linear-gradient(135deg, #f44336, #d32f2f);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout-button button:hover {
+      background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Logout Button fixed at the top right corner -->
+  <div class="logout-button">
+    <a href="/logout" style="text-decoration: none;">
+      <button>Logout</button>
+    </a>
+  </div>
+
+  <div class="header">
+    <h1>Deep Learning for Secure Mobile Edge Computing in Cyber-Physical Transportation Systems</h1>
+  </div>
+
+  <div class="container">
+    <h1>Network Attack Prediction</h1>
+    <h4>Enter the details below to predict the type of attack.</h4>
+
+    <!-- Prediction Form -->
+    <form action="/predict" method="POST">
+      <div class="form-section">
+        <label for="Device_ID">Device ID:</label>
+        <input type="text" id="Device_ID" name="Device_ID" required>
+      </div>
+      <div class="form-section">
+        <label for="Packet_Size">Packet Size (bytes):</label>
+        <input type="text" id="Packet_Size" name="Packet_Size" required>
+      </div>
+      <div class="form-section">
+        <label for="Latency">Latency (ms):</label>
+        <input type="text" id="Latency" name="Latency" required>
+      </div>
+      <div class="form-section">
+        <label for="Throughput">Throughput (Mbps):</label>
+        <input type="text" id="Throughput" name="Throughput" required>
+      </div>
+    <!-- Protocol Type Dropdown -->
+    <div class="form-section">
+      <label for="Protocol_Type">Protocol Type:</label>
+      <select id="Protocol_Type" name="Protocol_Type" required>
+        <option value="TCP" >TCP</option>
+        <option value="UDP" >UDP</option>
+        <option value="ICMP">ICMP</option>
+      </select>
+    </div>
+
+      <div class="form-section">
+        <label for="Source_Port">Source Port:</label>
+        <input type="text" id="Source_Port" name="Source_Port" required>
+      </div>
+      <div class="form-section">
+        <label for="Destination_Port">Destination Port:</label>
+        <input type="text" id="Destination_Port" name="Destination_Port" required>
+      </div>
+      <div class="form-section">
+        <label for="IP_Flag">IP Flag:</label>
+        <select id="IP_Flag" name="IP_Flag" required>
+          <option value="SYN">SYN</option>
+          <option value="ACK">ACK</option>
+          <option value="FIN">FIN</option>
+          <option value="RST">RST</option>
+        </select>
+      </div>
+      <div class="form-section">
+        <label for="Connection_Duration">Connection Duration (ms):</label>
+        <input type="text" id="Connection_Duration" name="Connection_Duration" required>
+      </div>
+      <div class="form-section">
+        <label for="Packet_Count">Packet Count:</label>
+        <input type="text" id="Packet_Count" name="Packet_Count" required>
+      </div>
+      <div class="form-section">
+        <label for="Error_Rate">Error Rate:</label>
+        <input type="text" id="Error_Rate" name="Error_Rate" required>
+      </div>
+      <div class="form-section">
+        <label for="Fragmentation_Flag">Fragmentation Flag:</label>
+        <select id="Fragmentation_Flag" name="Fragmentation_Flag" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+        </select>
+      </div>
+      <div class="form-section">
+        <label for="Payload_Size">Payload Size (bytes):</label>
+        <input type="text" id="Payload_Size" name="Payload_Size" required>
+      </div>
+      <div class="form-section">
+        <label for="Session_Status">Session Status:</label>
+        <select id="Session_Status" name="Session_Status" required>
+          <option value="Established">Established</option>
+          <option value="Failed">Failed</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+
+      <!-- Predict Button -->
+      <div class="form-section" style="width: 100%; text-align: center;">
+        <button type="submit" class="action-button">Predict</button>
+      </div>
+    </form>
+
+    <!-- Display Prediction -->
+    {% if prediction %}
+    <div class="prediction">
+      The predicted attack type is: {{ prediction }}
+    </div>
+    {% endif %}
+
+    <!-- Display Error Message -->
+    {% if error %}
+    <div class="error-message">
+      {{ error }}
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
