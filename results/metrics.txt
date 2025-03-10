@@ -1,0 +1,38 @@
+CNN Details:
+CNN Test Loss: 0.06365125626325607
+CNN Test Accuracy: 0.9800000190734863
+CNN Train Loss: 0.060804080218076706
+CNN Train Accuracy: 0.9815624952316284
+
+CNN Classification Report:
+              precision    recall  f1-score   support
+
+         DoS       0.98      0.96      0.97       195
+      Normal       1.00      1.00      1.00       192
+    Phishing       0.96      0.99      0.97       210
+   Spoofing        0.98      0.98      0.98       203
+
+    accuracy                           0.98       800
+   macro avg       0.98      0.98      0.98       800
+weighted avg       0.98      0.98      0.98       800
+
+
+RNN Details:
+
+RNN Test Loss: 0.08165992051362991
+RNN Test Accuracy: 0.9700000286102295
+RNN Train Loss: 0.02724323235452175
+RNN Train Accuracy: 0.9925000071525574
+
+RNN Classification Report:
+              precision    recall  f1-score   support
+
+         DoS       0.92      0.98      0.95       195
+      Normal       1.00      1.00      1.00       192
+    Phishing       0.99      0.96      0.97       210
+   Spoofing        0.97      0.94      0.95       203
+
+    accuracy                           0.97       800
+   macro avg       0.97      0.97      0.97       800
+weighted avg       0.97      0.97      0.97       800
+
